@@ -15,7 +15,7 @@ if mount | grep "on /mnt " > /dev/null; then
     echo "Phân vùng đã được mount vào /mnt. Tiếp tục..."
 else
     echo "Phân vùng chưa được mount. Đang tìm phân vùng lớn hơn 500GB..."
-    partition=$(lsblk -b --output NAME,SIZE,MOUNTPOINT | awk '$2 > 500000000000 && $3 == "" {print $1}' | head -n 1)
+    partition=$(lsblk -b --output NAME,SIZE,MOUNTPOINT | awk '$2 > 900000000000000 && $3 == "" {print $1}' | head -n 1)
 
     if [ -n "$partition" ]; then
         echo "Đã tìm thấy phân vùng: /dev/$partition"
